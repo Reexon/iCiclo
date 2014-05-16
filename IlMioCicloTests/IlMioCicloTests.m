@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "HomeViewController.h"
 
 @interface IlMioCicloTests : XCTestCase
 
@@ -26,9 +27,13 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)testDatesToYearFromCurrentDate {
+    HomeViewController *hvc = [[HomeViewController alloc] init];
+    NSDate *curretDate = [[NSDate alloc] init];
+    int days = 28;
+    
+    NSMutableArray *dates = [hvc datesToYearFromCurrentDate:curretDate days:days];
+    int c = 0;
 }
 
 @end

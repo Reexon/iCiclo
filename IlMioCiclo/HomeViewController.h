@@ -11,11 +11,17 @@
 @interface HomeViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *pickerView;
+@property (weak, nonatomic) IBOutlet UITextField *daysTextField;
+
+/// Da rimuovere
 @property (weak, nonatomic) IBOutlet UITextField *meseTextView;
 @property (weak, nonatomic) IBOutlet UITextField *resultTextView;
-
 
 - (IBAction)valueChagedPicker:(id)sender;
 - (IBAction)keyboardDown:(id)sender;
 - (IBAction)pressView:(id)sender;
+- (IBAction)pressedDoneButton:(id)sender;
+
+- (NSMutableArray *)datesToYearFromCurrentDate:(NSDate *)date days:(int)days;
+
 @end
