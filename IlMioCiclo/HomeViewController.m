@@ -61,12 +61,12 @@
     
     resultTextView.text = [newDate1 description];
    
-    */
+    
     NSDate *now = [self.pickerView date];
     int daysToAdd = 28;
     NSDate *newDate = [now dateByAddingTimeInterval:60*60*24*daysToAdd];
     NSLog(@"%@", [newDate description]);
-    
+    */
 }
 
 /**
@@ -92,7 +92,7 @@
 - (IBAction)pressedDoneButton:(id)sender {
     
     // -- Prendo le informazioni dell'utene
-    NSDate *date = (NSDate *)self.pickerView;
+    NSDate *date = (NSDate *)self.pickerView.date;
     int days = (int)[self.daysTextField.text intValue];
     
     
@@ -130,7 +130,7 @@
     //Trovo il mese corrente
     int numberMonth = (int)[HomeViewController monthFromDate:date];
     NSMutableArray *dates = [[NSMutableArray alloc] init];
-    int monthes = (12 * numberYear) - numberMonth + 1;
+    int monthes = (12 * numberYear) - numberMonth + 2;
     
     for (int i=0; i<monthes; i++) {
         [dates addObject:[self dateCicloWithPreviusData:date andDaysToAdd:days andMonth:i]];
