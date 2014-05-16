@@ -110,7 +110,7 @@
  */
 - (NSMutableArray *)datesToYearFromCurrentDate:(NSDate *)date days:(int)days {
     
-    [self datesToYearFromCurrentDate:date days:days withYears:1];
+    return [self datesToYearFromCurrentDate:date days:days withYears:1];
 }
 
 /**
