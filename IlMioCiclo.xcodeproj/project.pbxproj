@@ -23,6 +23,7 @@
 		1831EFD41924C4FB00ED408B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1831EFD21924C4FB00ED408B /* InfoPlist.strings */; };
 		1831EFD61924C4FB00ED408B /* IlMioCicloTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831EFD51924C4FB00ED408B /* IlMioCicloTests.m */; };
 		1831EFE11924C54B00ED408B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831EFE01924C54B00ED408B /* HomeViewController.m */; };
+		ABC8AF0D1926458E0077EDF6 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC8AF0C1926458E0077EDF6 /* CalendarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		1831EFD51924C4FB00ED408B /* IlMioCicloTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IlMioCicloTests.m; sourceTree = "<group>"; };
 		1831EFDF1924C54B00ED408B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		1831EFE01924C54B00ED408B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		ABC8AF0B1926458E0077EDF6 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		ABC8AF0C1926458E0077EDF6 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				1831EFAE1924C4FA00ED408B /* Supporting Files */,
 				1831EFDF1924C54B00ED408B /* HomeViewController.h */,
 				1831EFE01924C54B00ED408B /* HomeViewController.m */,
+				ABC8AF0B1926458E0077EDF6 /* CalendarViewController.h */,
+				ABC8AF0C1926458E0077EDF6 /* CalendarViewController.m */,
 			);
 			path = IlMioCiclo;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				1831EFB81924C4FA00ED408B /* AppDelegate.m in Sources */,
 				1831EFBE1924C4FB00ED408B /* FirstViewController.m in Sources */,
 				1831EFE11924C54B00ED408B /* HomeViewController.m in Sources */,
+				ABC8AF0D1926458E0077EDF6 /* CalendarViewController.m in Sources */,
 				1831EFB41924C4FA00ED408B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +474,7 @@
 				1831EFDB1924C4FB00ED408B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1831EFDC1924C4FB00ED408B /* Build configuration list for PBXNativeTarget "IlMioCicloTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +483,7 @@
 				1831EFDE1924C4FB00ED408B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
