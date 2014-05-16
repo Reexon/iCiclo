@@ -22,6 +22,7 @@
 		1831EFCC1924C4FB00ED408B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1831EFAB1924C4FA00ED408B /* UIKit.framework */; };
 		1831EFD41924C4FB00ED408B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1831EFD21924C4FB00ED408B /* InfoPlist.strings */; };
 		1831EFD61924C4FB00ED408B /* IlMioCicloTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831EFD51924C4FB00ED408B /* IlMioCicloTests.m */; };
+		1831EFE11924C54B00ED408B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831EFE01924C54B00ED408B /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		1831EFD11924C4FB00ED408B /* IlMioCicloTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IlMioCicloTests-Info.plist"; sourceTree = "<group>"; };
 		1831EFD31924C4FB00ED408B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1831EFD51924C4FB00ED408B /* IlMioCicloTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IlMioCicloTests.m; sourceTree = "<group>"; };
+		1831EFDF1924C54B00ED408B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		1831EFE01924C54B00ED408B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				1831EFC01924C4FB00ED408B /* SecondViewController.m */,
 				1831EFC21924C4FB00ED408B /* Images.xcassets */,
 				1831EFAE1924C4FA00ED408B /* Supporting Files */,
+				1831EFDF1924C54B00ED408B /* HomeViewController.h */,
+				1831EFE01924C54B00ED408B /* HomeViewController.m */,
 			);
 			path = IlMioCiclo;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				1831EFC11924C4FB00ED408B /* SecondViewController.m in Sources */,
 				1831EFB81924C4FA00ED408B /* AppDelegate.m in Sources */,
 				1831EFBE1924C4FB00ED408B /* FirstViewController.m in Sources */,
+				1831EFE11924C54B00ED408B /* HomeViewController.m in Sources */,
 				1831EFB41924C4FA00ED408B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
