@@ -3,10 +3,11 @@
 //  IlMioCiclo
 //
 //  Created by Loris D'antonio on 16/05/14.
-//  Copyright (c) 2014 Marco Velluto. All rights reserved.
+//  Copyright (c) 2014 Loris D'antonio. All rights reserved.
 //
 
 #import "CalendarViewController.h"
+#import "MonthCell.h"
 
 @interface CalendarViewController ()
 
@@ -46,4 +47,14 @@
 }
 */
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 1;
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    MonthCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"identifier" forIndexPath:indexPath];
+    
+    return cell;
+}
 @end

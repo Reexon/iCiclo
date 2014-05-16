@@ -24,6 +24,7 @@
 		1831EFD61924C4FB00ED408B /* IlMioCicloTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831EFD51924C4FB00ED408B /* IlMioCicloTests.m */; };
 		1831EFE11924C54B00ED408B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831EFE01924C54B00ED408B /* HomeViewController.m */; };
 		ABC8AF0D1926458E0077EDF6 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC8AF0C1926458E0077EDF6 /* CalendarViewController.m */; };
+		ABC8AF10192649150077EDF6 /* MonthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC8AF0F192649150077EDF6 /* MonthCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		1831EFE01924C54B00ED408B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		ABC8AF0B1926458E0077EDF6 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		ABC8AF0C1926458E0077EDF6 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		ABC8AF0E192649150077EDF6 /* MonthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCell.h; sourceTree = "<group>"; };
+		ABC8AF0F192649150077EDF6 /* MonthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 				1831EFE01924C54B00ED408B /* HomeViewController.m */,
 				ABC8AF0B1926458E0077EDF6 /* CalendarViewController.h */,
 				ABC8AF0C1926458E0077EDF6 /* CalendarViewController.m */,
+				ABC8AF0E192649150077EDF6 /* MonthCell.h */,
+				ABC8AF0F192649150077EDF6 /* MonthCell.m */,
 			);
 			path = IlMioCiclo;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				1831EFBE1924C4FB00ED408B /* FirstViewController.m in Sources */,
 				1831EFE11924C54B00ED408B /* HomeViewController.m in Sources */,
 				ABC8AF0D1926458E0077EDF6 /* CalendarViewController.m in Sources */,
+				ABC8AF10192649150077EDF6 /* MonthCell.m in Sources */,
 				1831EFB41924C4FA00ED408B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
