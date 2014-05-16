@@ -77,6 +77,10 @@
 }
 
 /**
+ 
+ ** ATTENZIONE**
+ Funziona solo per il prossimo mese
+ 
  @param oldDate -> Data dell'ultima mestruazione.
  @param daysToAdd -> Durata periodo senza ciclo (28).
  @param Month -> Mese del quale si vuole sapere l'inizo della data del ciclo.
@@ -84,10 +88,9 @@
  @return newDate -> Data inizo ciclo.
  */
 - (NSDate *)dateCicloWithPreviusData:(NSDate *)oldDate andDaysToAdd:(int)daysToAdd andMonth:(int)month{
-    NSDate *date = oldDate;
     
-    int dataToMonth = daysToAdd * month;
-    NSDate *newDate = [date dateByAddingTimeInterval:60*60*24*dataToMonth];
+    NSDate *now = [self.pickerView date];
+    NSDate *newDate = [now dateByAddingTimeInterval:60*60*24*daysToAdd];
     NSLog(@"%@", [newDate description]);
     
     return newDate;
