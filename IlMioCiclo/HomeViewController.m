@@ -63,6 +63,7 @@
     int daysToAdd = 28;
     NSDate *newDate = [now dateByAddingTimeInterval:60*60*24*daysToAdd];
     NSLog(@"%@", [newDate description]);
+    
 }
 
 - (IBAction)keyboardDown:(id)sender {
