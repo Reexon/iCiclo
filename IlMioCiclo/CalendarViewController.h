@@ -10,6 +10,7 @@
 
 @interface CalendarViewController : UICollectionViewController
 
+@property (strong,nonatomic) NSArray *monthArray;
 @property (strong, nonatomic) IBOutlet UICollectionView *calendar;
 
 @end

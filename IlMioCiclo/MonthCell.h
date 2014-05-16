@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MonthCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *monthLabel;
 
 @end
