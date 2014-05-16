@@ -117,6 +117,7 @@
     return [comp weekday];
 
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -147,8 +148,6 @@
     //numero dei giorni contenuti nel mese (indexPath.Row inizia da 0)
     int numberOfDays = [self daysInMonth:(indexPath.row+1)];
     
-    
-    
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
     NSDateFormatter *date = [[NSDateFormatter alloc] init];
@@ -157,9 +156,6 @@
     [date setCalendar:gregorianCalendar];
     [date setTimeZone:timeZone];
     
-    
-    
-    
     for (int i = 1, y = 50; i <= numberOfDays ; i++){
         /* 
             prelevo il giorno (mi serve per gestire l'ascissa x della label)
@@ -167,12 +163,15 @@
          */
         int day = [self dayOfWeek:i withMonth:indexPath.row+1 withYear:2014];
         
+        //data che rappresenta la cella
         NSDate *data = [date dateFromString:[NSString stringWithFormat:@"%d/%ld/2014",i,(long)indexPath.row]];
         
         //start_date sarà l'inizio del ciclo
         NSDate *start_date = [date dateFromString:@"14/6/2014"];
         
-        BOOL b = [self date:data isBetweenDate:start_date andDate:[start_date dateByAddingTimeInterval:60*60*24*4]];
+        //data è compreso nell periodo del ciclo ?
+        BOOL b = [self date:data isBetweenDate:start_date andDate:[start_date dateByAddingTimeInterval:60*60*24*7]];
+        
         /*
          questo magheggio mi serve perchè il conteggio dei giorni viene fatto in modo sballato,
          1- domenica
@@ -202,15 +201,26 @@
         // creo la label che rappresenta il numero del giorno
         UILabel  * label = [[UILabel alloc] initWithFrame:CGRectMake(4+day*14, y, 15, 15)];
         label.font = [UIFont fontWithName:@"Arial" size:9.0f];
-        
-        if(!b)
-            label.backgroundColor = [UIColor clearColor];
-        else
-            label.backgroundColor = [UIColor redColor];
-        
         label.textColor=[UIColor blackColor];
         label.numberOfLines=1;
         label.text = [NSString stringWithFormat:@"%d",i];
+        
+        
+        //contiene il numero di secondi tra una data e l'altra
+        //calcolo secondi  tra giorno_inizio ciclo e giorno attuale
+        NSTimeInterval dif_seconds = [data timeIntervalSinceDate:start_date];
+        int dif_days = dif_seconds/(60*60*24);
+        
+        // se la differenza tra i giorni di inizio ciclo e giorno attuale corrisponde a uno dei seguenti
+        //applico colorazione differente
+        if(dif_days <= 2 && dif_days >= 0)
+            label.backgroundColor = [UIColor redColor];
+        else if(dif_days < 7 && dif_days >= 5)
+            label.backgroundColor = [UIColor yellowColor];
+        else if(dif_days < 5 && dif_days > 2)
+            label.backgroundColor = [UIColor orangeColor];
+        
+        
         [cell.contentView addSubview:label];
     }
     
