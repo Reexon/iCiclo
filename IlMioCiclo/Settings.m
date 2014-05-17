@@ -21,7 +21,7 @@
 - (id) init{
     if (self == [self init]){
         
-        NSDictionary *appDefaultsOption = [NSDictionary dictionaryWithObjectsAndKeys:
+       NSDictionary *appDefaultsOption = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"YES", @"ShowToolBar",
                                      @"NO", @"AutoSaveEnabled",
                                      // ... lots of objects and keys here,
@@ -44,9 +44,15 @@
         nome dell'opzione da salvare
  */
 - (void)saveSettingString:(NSString *)value forKey:(NSString *)option{
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    //creo un'option e imposto un valore
     [defaults setValue:value forKey:option];
+    
+    //effettivo salvataggio delle impostazioni
     [defaults synchronize];
+    
 }
 
 /**

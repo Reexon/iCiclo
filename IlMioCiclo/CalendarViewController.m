@@ -8,14 +8,13 @@
 
 #import "CalendarViewController.h"
 #import "MonthCell.h"
+#import "DayLabel.h"
 
-#define LABEL_DAY_WIDTH 15
-#define LABEL_DAY_HEIGHT 15
 
-//l'incremento dell'asse x (di default è LABEL_DAY_WIDTH -1)
-#define LABEL_DAY_X_INCREMENT 14
 
 #define PERIOD_DURATION 7
+
+
 @interface CalendarViewController ()
 
 @end
@@ -212,11 +211,7 @@
             y+=LABEL_DAY_HEIGHT;
         
         // creo la label che rappresenta il numero del giorno
-        UILabel  * label = [[UILabel alloc] initWithFrame:CGRectMake(4+day*LABEL_DAY_X_INCREMENT, y, LABEL_DAY_WIDTH, LABEL_DAY_HEIGHT)];
-        label.font = [UIFont fontWithName:@"Arial" size:9.0f];
-        label.textColor=[UIColor blackColor];
-        label.numberOfLines=1;
-        label.text = [NSString stringWithFormat:@"%d",i];
+        DayLabel  * label = [[DayLabel alloc] initWithDay:day andY:y andDayNumber:i];
 
         /*
          * serve per determinare se la data di cui sto creando la cella
@@ -232,7 +227,8 @@
                 //calcolo secondi  tra giorno_inizio ciclo e giorno attuale
                 NSTimeInterval dif_seconds = [data timeIntervalSinceDate:start_date];
                 
-                label.textColor = [self detectColorFromDifferenceSeconds:dif_seconds];
+                label.backgroundColor = [self detectColorFromDifferenceSeconds:dif_seconds];
+
             }
         }
 
