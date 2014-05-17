@@ -13,7 +13,12 @@
 
 @end
 
-@implementation CalendarViewController
+@implementation CalendarViewController{
+    NSMutableArray *cicleStartDate;
+    NSCalendar *gregorianCalendar;
+    NSTimeZone *timeZone ;
+    NSDateFormatter *date ;
+}
 @synthesize monthArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -28,10 +33,15 @@
 - (void)viewDidLoad
 {
     monthArray = @[@"Gennaio",@"Febbraio",@"Marzo",@"Aprile",@"Maggio",@"Giugno",@"Luglio",@"Agosto",@"Settembre",@"Ottobre",@"Novembre",@"Dicembre"];
+    
+    gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
+    date = [[NSDateFormatter alloc] init];
+    [date setCalendar:gregorianCalendar];
+    date.timeStyle = NSDateFormatterNoStyle;
+    [date setTimeZone:timeZone];
+    
     [super viewDidLoad];
-    
-    
-
     
     /*NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
@@ -67,18 +77,13 @@
         restituisce il numero dei giorni presenti nel mese (month)
  */
 - (int)daysInMonth:(int)month{
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
-    NSDateFormatter *date = [[NSDateFormatter alloc] init];
-    date.timeStyle = NSDateFormatterNoStyle;
+
     date.dateFormat = @"dd/MM/yyyy";
-    [date setCalendar:gregorianCalendar];
-    [date setTimeZone:timeZone];
-    
+
     NSDate *data = [date dateFromString:[NSString stringWithFormat:@"01/%d/2014",month]];
 
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSRange days = [gregorian rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:data];
+    NSRange days = [gregorianCalendar rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:data];
+    
     int daysInGivenMonth= days.length;
     
     return daysInGivenMonth;
@@ -102,13 +107,9 @@
  
  */
 - (int)dayOfWeek:(int)day withMonth:(int)month withYear:(int)year{
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
-    NSDateFormatter *date = [[NSDateFormatter alloc] init];
-    date.timeStyle = NSDateFormatterNoStyle;
+
     date.dateFormat = @"dd/MM/yyyy";
-    [date setCalendar:gregorianCalendar];
-    [date setTimeZone:timeZone];
+
     NSDate *data = [date dateFromString:[NSString stringWithFormat:@"%d/%d/%d",day,month,year]];
     
     NSCalendar* cal = [NSCalendar currentCalendar];
@@ -148,13 +149,7 @@
     //numero dei giorni contenuti nel mese (indexPath.Row inizia da 0)
     int numberOfDays = [self daysInMonth:(indexPath.row+1)];
     
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
-    NSDateFormatter *date = [[NSDateFormatter alloc] init];
-    date.timeStyle = NSDateFormatterNoStyle;
     date.dateFormat = @"dd/MM/yyyy";
-    [date setCalendar:gregorianCalendar];
-    [date setTimeZone:timeZone];
     
     for (int i = 1, y = 50; i <= numberOfDays ; i++){
         /* 
@@ -170,7 +165,7 @@
         NSDate *start_date = [date dateFromString:@"14/6/2014"];
         
         //data è compreso nell periodo del ciclo ?
-        BOOL b = [self date:data isBetweenDate:start_date andDate:[start_date dateByAddingTimeInterval:60*60*24*7]];
+        //BOOL b = [self date:data isBetweenDate:start_date andDate:[start_date dateByAddingTimeInterval:60*60*24*7]];
         
         /*
          questo magheggio mi serve perchè il conteggio dei giorni viene fatto in modo sballato,
@@ -209,6 +204,8 @@
         //contiene il numero di secondi tra una data e l'altra
         //calcolo secondi  tra giorno_inizio ciclo e giorno attuale
         NSTimeInterval dif_seconds = [data timeIntervalSinceDate:start_date];
+        
+        //numero giorni di differenza (puo' essere valore negativo o positivo)
         int dif_days = dif_seconds/(60*60*24);
         
         // se la differenza tra i giorni di inizio ciclo e giorno attuale corrisponde a uno dei seguenti
