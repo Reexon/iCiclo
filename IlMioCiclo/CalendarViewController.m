@@ -48,7 +48,12 @@
     [date setCalendar:gregorianCalendar];
     date.timeStyle = NSDateFormatterNoStyle;
     [date setTimeZone:timeZone];
-    
+    date.dateFormat = @"dd/MM/yyyy";
+    cicleStartDate = [NSMutableArray new];
+    [cicleStartDate addObject:[date dateFromString:@"25/07/2014"]];
+    [cicleStartDate addObject:[date dateFromString:@"10/04/2014"]];
+    [cicleStartDate addObject:[date dateFromString:@"1/01/2014"]];
+    [cicleStartDate addObject:[date dateFromString:@"1/06/2014"]];
     [super viewDidLoad];
     
     /*NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -208,25 +213,25 @@
         label.textColor=[UIColor blackColor];
         label.numberOfLines=1;
         label.text = [NSString stringWithFormat:@"%d",i];
-        
-        
-        //contiene il numero di secondi tra una data e l'altra
-        //calcolo secondi  tra giorno_inizio ciclo e giorno attuale
-        NSTimeInterval dif_seconds = [data timeIntervalSinceDate:start_date];
-        
-        //numero giorni di differenza (puo' essere valore negativo o positivo)
-        int dif_days = dif_seconds/(60*60*24);
-        
-        // se la differenza tra i giorni di inizio ciclo e giorno attuale corrisponde a uno dei seguenti
-        //applico colorazione differente
-        if(dif_days <= 2 && dif_days >= 0)
-            label.backgroundColor = [UIColor redColor];
-        else if(dif_days < 7 && dif_days >= 5)
-            label.backgroundColor = [UIColor yellowColor];
-        else if(dif_days < 5 && dif_days > 2)
-            label.backgroundColor = [UIColor orangeColor];
-        
-        
+
+        /*
+         * serve per determinare se la data di cui sto creando la cella
+         * è un giorno che fa parte di uno dei periodi del ciclo,
+         * se ne fa parte, allora la coloro.
+         */
+        for (int i = 0 ; i < cicleStartDate.count ; i++){
+            NSDate *start_date = [cicleStartDate objectAtIndex:i];
+            NSDate *finish_data = [start_date dateByAddingTimeInterval:60*60*24*PERIOD_DURATION];
+            if([self date:data isBetweenDate:start_date andDate:finish_data]){
+                
+                //contiene il numero di secondi tra una data e l'altra
+                //calcolo secondi  tra giorno_inizio ciclo e giorno attuale
+                NSTimeInterval dif_seconds = [data timeIntervalSinceDate:start_date];
+                
+                label.textColor = [self detectColorFromDifferenceSeconds:dif_seconds];
+            }
+        }
+
         [cell.contentView addSubview:label];
     }
     
@@ -247,8 +252,7 @@
         FALSE altrimenti
  */
 
-- (BOOL)date:(NSDate*)date isBetweenDate:(NSDate*)beginDate andDate:(NSDate*)endDate
-{
+- (BOOL)date:(NSDate*)date isBetweenDate:(NSDate*)beginDate andDate:(NSDate*)endDate{
     if ([date compare:beginDate] == NSOrderedAscending)
         return NO;
     
@@ -256,5 +260,29 @@
         return NO;
     
     return YES;
+}
+
+/**
+ @author Loris D'antonio
+ 
+ @param seconds
+        rappresenta l'intervallo in secondi tra il giorno del ciclo e il giorno in esame
+ @return 
+        ritorna il colore adatto della cella
+ */
+- (UIColor *)detectColorFromDifferenceSeconds:(NSTimeInterval)seconds{
+    //numero giorni di differenza (puo' essere valore negativo o positivo)
+    int dif_days = seconds/(60*60*24);
+    
+    // se la differenza tra i giorni di inizio ciclo e giorno attuale corrisponde a uno dei seguenti
+    //applico colorazione differente
+    if(dif_days <= 2 && dif_days >= 0)
+        return [UIColor redColor];
+    else if(dif_days < 7 && dif_days >= 5)
+        return [UIColor yellowColor];
+    else if(dif_days < 5 && dif_days > 2)
+        return [UIColor orangeColor];
+
+    return [UIColor clearColor];
 }
 @end
