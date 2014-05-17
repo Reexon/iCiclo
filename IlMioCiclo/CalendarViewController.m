@@ -150,6 +150,10 @@
 */
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    /* ritorno numero dei mesi
+     * finchè non avverà qualche catastrofe o cambiamento del cosmo , 
+     * invasione alieni o altro, sarà sempre 12.
+     */
     return monthArray.count;
 }
 
@@ -267,7 +271,7 @@
  
  @param seconds
         rappresenta l'intervallo in secondi tra il giorno del ciclo e il giorno in esame
- @return 
+ @return UIColor
         ritorna il colore adatto della cella
  */
 - (UIColor *)detectColorFromDifferenceSeconds:(NSTimeInterval)seconds{
