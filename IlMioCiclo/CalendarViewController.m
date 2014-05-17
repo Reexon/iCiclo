@@ -9,11 +9,19 @@
 #import "CalendarViewController.h"
 #import "MonthCell.h"
 
+#define LABEL_DAY_WIDTH 15
+#define LABEL_DAY_HEIGHT 15
+
+//l'incremento dell'asse x (di default è LABEL_DAY_WIDTH -1)
+#define LABEL_DAY_X_INCREMENT 14
+
+#define PERIOD_DURATION 7
 @interface CalendarViewController ()
 
 @end
 
 @implementation CalendarViewController{
+    //array di NSDate , ogni data rappresenta l'inizio del ciclo.
     NSMutableArray *cicleStartDate;
     NSCalendar *gregorianCalendar;
     NSTimeZone *timeZone ;
@@ -158,11 +166,12 @@
          */
         int day = [self dayOfWeek:i withMonth:indexPath.row+1 withYear:2014];
         
-        //data che rappresenta la cella
+        //data che rappresenta la label
         NSDate *data = [date dateFromString:[NSString stringWithFormat:@"%d/%ld/2014",i,(long)indexPath.row]];
         
         //start_date sarà l'inizio del ciclo
-        NSDate *start_date = [date dateFromString:@"14/6/2014"];
+        //NSDate *start_date = [date dateFromString:@"14/6/2014"];
+        
         
         //data è compreso nell periodo del ciclo ?
         //BOOL b = [self date:data isBetweenDate:start_date andDate:[start_date dateByAddingTimeInterval:60*60*24*7]];
@@ -191,10 +200,10 @@
          quindi incrementiamo l'asse y della label
          */
         if (day == 0 && i != 1)
-            y+=15;
+            y+=LABEL_DAY_HEIGHT;
         
         // creo la label che rappresenta il numero del giorno
-        UILabel  * label = [[UILabel alloc] initWithFrame:CGRectMake(4+day*14, y, 15, 15)];
+        UILabel  * label = [[UILabel alloc] initWithFrame:CGRectMake(4+day*LABEL_DAY_X_INCREMENT, y, LABEL_DAY_WIDTH, LABEL_DAY_HEIGHT)];
         label.font = [UIFont fontWithName:@"Arial" size:9.0f];
         label.textColor=[UIColor blackColor];
         label.numberOfLines=1;
