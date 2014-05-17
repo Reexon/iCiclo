@@ -61,9 +61,42 @@
     nome dell'opzione da salvare
  */
 - (void)saveSettingBool:(bool)boolean forKey:(NSString *)option{
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:boolean forKey:option];
     [defaults synchronize];
+    
 }
 
+/**
+ @author Loris D'antonio
+ 
+ @abstract prelevo il valore string per l'impostazione richiesta.
+ 
+ @param NSString option
+        nome dell'opzione richiesta
+ 
+ @return NSString 
+        valore dell'impostazione richiesta
+ */
+- (NSString *)getSettingString:(NSString *)option{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults valueForKey:option];
+}
+
+/**
+ @author Loris D'antonio
+ 
+ @abstract prelevo valore bool per l'impostazione richiesta.
+ 
+ @param NSString option
+        nome dell'opzione richiesta
+ 
+ @return NSString
+        valore dell'impostazione richiesta
+ */
+- (BOOL)getSettingBool:(NSString *)option{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults boolForKey:option];
+}
 @end
