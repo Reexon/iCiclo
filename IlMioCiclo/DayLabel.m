@@ -20,6 +20,7 @@
         self.textColor = [UIColor blackColor];
         self.font = [UIFont fontWithName:@"Arial" size:9.0f];
         self.text = [NSString stringWithFormat:@"%d",nDay];
+        self.textAlignment = NSTextAlignmentCenter;
     }
     return self;
 }

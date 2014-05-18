@@ -266,7 +266,7 @@
  @author Loris D'antonio
  
  @param seconds
-        rappresenta l'intervallo in secondi tra il giorno del ciclo e il giorno in esame
+        rappresenta l'intervallo in secondi tra il giorno del ciclo e il giorno in esame (può essere negativo)
  @return UIColor
         ritorna il colore adatto della cella
  */

@@ -12,6 +12,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Usato per incrementare il tempo dello Splash Screen
+    [NSThread sleepForTimeInterval:5.0];
+    
     // Override point for customization after application launch.
     return YES;
 }
