@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "CustomDate.h"
 
 @interface HomeViewController ()
 
@@ -96,109 +97,10 @@
     int days = (int)[self.daysTextField.text intValue];
     
     
-    [self datesToYearFromCurrentDate:date days:days];
+    [CustomDate datesToYearFromCurrentDate:date days:days];
     
 }
 
-/**
- @brief Restituisce un array di date di inizio mestruazione per l'anno corrente.
- 
- @param date Data dalla quale partire il conteggio.
- @param days Numero di giorni tra una mestruazione e l'altra.
- 
- @return array di date di inizio metruazione, di tutti i mesi.
- */
-- (NSMutableArray *)datesToYearFromCurrentDate:(NSDate *)date days:(int)days {
-    
-    return [self datesToYearFromCurrentDate:date days:days withYears:1];
-}
 
-/**
- @brief Restituisce un array di date di inizio mestruazione per l'anno corrente.
-
- @param date Data dalla quale partire il conteggio.
- @param days  Numero di giorni tra una mestruazione e l'altra.
- @param numberYear  [1 .... n] 1 - anno in corso. Per quanti anni si vogliono calcolare le date.
- 
- @return array di date di inizio metruazione, di tutti i mesi.
- */
-- (NSMutableArray *)datesToYearFromCurrentDate:(NSDate *)date days:(int)days withYears:(int)numberYear {
-    
-    if (numberYear == 0)
-        numberYear= 1;
-    
-    //Trovo il mese corrente
-    int numberMonth = (int)[HomeViewController monthFromDate:date];
-    NSMutableArray *dates = [[NSMutableArray alloc] init];
-    int monthes = (12 * numberYear) - numberMonth + 2;
-    
-    for (int i=0; i<monthes; i++) {
-        [dates addObject:[self dateCicloWithPreviusData:date andDaysToAdd:days andMonth:i]];
-    }
-    return dates;
-}
-
-/**
- @author Marco.
- 
- @param date Data da analizzare
-    @return NSDateComponets DataComponents relativo alla data.
- */
-+ (NSDateComponents *)componentsFromDate:(NSDate *)date {
-    NSDateComponents *components = [[NSCalendar currentCalendar]
-                                    components:NSCalendarUnitDay |
-                                    NSCalendarUnitMonth |
-                                    NSCalendarUnitYear
-                                    fromDate:date];
-    return components;
-}
-
-/**
- @author Marco.
- 
- @param date data da analizare
- @return restituisce il numero del gioro relativo alla data passata.
- */
-+ (NSInteger)dayFromDate:(NSDate *)date {
-
-    NSDateComponents *componets = [HomeViewController componentsFromDate:date];
-    NSInteger day = [componets day];
-    return day;
-}
-
-+ (NSInteger)monthFromDate:(NSDate *)date {
-    
-    NSDateComponents *componets = [HomeViewController componentsFromDate:date];
-    NSInteger month = [componets month];
-    return month;
-}
-
-+ (NSInteger)yearFromDate:(NSDate *)date {
-    
-    NSDateComponents *componets = [HomeViewController componentsFromDate:date];
-    NSInteger year = [componets year];
-    return year;
-}
-
-
-/**
- @brief Calcola la data di inizio mestruazione
- 
- @param oldDate Data dell'ultima mestruazione.
- @param daysToAdd Durata periodo senza ciclo (28).
- @param Month [1 .... n] 1 -> Mese attuale. Numero dei mesi del quale si vuole sapere il ciclo
- (es. Siamo a maggio, se voglio sapere quello di agosto, inserirò 3).
- 
- @return newDate Data inizo ciclo.
- */
-- (NSDate *)dateCicloWithPreviusData:(NSDate *)oldDate andDaysToAdd:(int)daysToAdd andMonth:(int)month{
-    
-    NSDate *now = oldDate;
-    int days = daysToAdd * month;
-    NSDate *newDate = [now dateByAddingTimeInterval:60*60*24* days];
-    NSLog(@"%@", [newDate description]);
-    
-    return newDate;
-}
 
 @end

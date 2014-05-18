@@ -22,6 +22,4 @@
 - (IBAction)pressView:(id)sender;
 - (IBAction)pressedDoneButton:(id)sender;
 
-- (NSMutableArray *)datesToYearFromCurrentDate:(NSDate *)date days:(int)days;
-
 @end

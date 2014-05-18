@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181D9A9C1928E9DB00218E03 /* CustomDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D9A9B1928E9DB00218E03 /* CustomDate.m */; };
+		181D9A9F1928EA0D00218E03 /* TestCustomDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D9A9E1928EA0D00218E03 /* TestCustomDate.m */; };
 		1831EFA81924C4FA00ED408B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1831EFA71924C4FA00ED408B /* Foundation.framework */; };
 		1831EFAA1924C4FA00ED408B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1831EFA91924C4FA00ED408B /* CoreGraphics.framework */; };
 		1831EFAC1924C4FA00ED408B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1831EFAB1924C4FA00ED408B /* UIKit.framework */; };
@@ -41,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181D9A9A1928E9DB00218E03 /* CustomDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDate.h; sourceTree = "<group>"; };
+		181D9A9B1928E9DB00218E03 /* CustomDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDate.m; sourceTree = "<group>"; };
+		181D9A9E1928EA0D00218E03 /* TestCustomDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCustomDate.m; sourceTree = "<group>"; };
 		1831EFA41924C4FA00ED408B /* IlMioCiclo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IlMioCiclo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1831EFA71924C4FA00ED408B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1831EFA91924C4FA00ED408B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181D9A9D1928E9E200218E03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				181D9A9A1928E9DB00218E03 /* CustomDate.h */,
+				181D9A9B1928E9DB00218E03 /* CustomDate.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		1831EF9B1924C4FA00ED408B = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +145,6 @@
 		1831EFAD1924C4FA00ED408B /* IlMioCiclo */ = {
 			isa = PBXGroup;
 			children = (
-				AB799FC9192754E7004494A1 /* Settings */,
 				1831EFB61924C4FA00ED408B /* AppDelegate.h */,
 				1831EFB71924C4FA00ED408B /* AppDelegate.m */,
 				1831EFB91924C4FB00ED408B /* Main.storyboard */,
@@ -143,7 +156,9 @@
 				1831EFAE1924C4FA00ED408B /* Supporting Files */,
 				1831EFDF1924C54B00ED408B /* HomeViewController.h */,
 				1831EFE01924C54B00ED408B /* HomeViewController.m */,
+				AB799FC9192754E7004494A1 /* Settings */,
 				ABC8AF1119264ADF0077EDF6 /* Calendar */,
+				181D9A9D1928E9E200218E03 /* Model */,
 			);
 			path = IlMioCiclo;
 			sourceTree = "<group>";
@@ -163,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				1831EFD51924C4FB00ED408B /* IlMioCicloTests.m */,
+				181D9A9E1928EA0D00218E03 /* TestCustomDate.m */,
 				1831EFD01924C4FB00ED408B /* Supporting Files */,
 			);
 			path = IlMioCicloTests;
@@ -318,6 +334,7 @@
 				1831EFE11924C54B00ED408B /* HomeViewController.m in Sources */,
 				ABC8AF0D1926458E0077EDF6 /* CalendarViewController.m in Sources */,
 				AB9CB40619276CDF00C84BAA /* DayLabel.m in Sources */,
+				181D9A9C1928E9DB00218E03 /* CustomDate.m in Sources */,
 				ABC8AF10192649150077EDF6 /* MonthCell.m in Sources */,
 				AB799FCC19275564004494A1 /* Settings.m in Sources */,
 				1831EFB41924C4FA00ED408B /* main.m in Sources */,
@@ -329,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB799FCD19275564004494A1 /* Settings.m in Sources */,
+				181D9A9F1928EA0D00218E03 /* TestCustomDate.m in Sources */,
 				1831EFD61924C4FB00ED408B /* IlMioCicloTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
