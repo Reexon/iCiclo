@@ -10,7 +10,7 @@
 
 @implementation Settings
 
-/*
+/**
  @author Loris D'antonio
  
  @abstract il register default , viene utilizzato per salvare le impostazioni di default (da utilizzare solo al primo avvio).
