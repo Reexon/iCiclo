@@ -34,12 +34,47 @@
     int days = 28;
     
     //-- Imposto manualmente una data.
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     [dateComponents setDay:11];
     [dateComponents setMonth:05];
     [dateComponents setYear:2014];
+
+    //crei oggetto date, che conterrà la data di oggi, fin qua no problem!
     NSDate *date = [[NSDate alloc] init];
-    date = [dateComponents date];
+    
+    /*
+     * -------- INIZIO PROBLEMA ---------
+     */
+    
+        /*
+         * usanto sta roba date diventa nil ! perchè in dateComponents non hai impostato il calendario !
+         * lui non sa secondo quale calendario prelevare la data
+         */
+        date = [dateComponents date];
+        
+        /*
+         * OVVIAMENTE il nslog visualizzerà: (null) - (null)
+         */
+        NSLog(@"%@ - %@",dateComponents.calendar,date);
+    
+    /*
+     * ------- FINE PROBLEMA ---------
+     *
+     * ------ INIZIO SOLUZIONE ----------
+     */
+    
+        //dovresti prima impostare il calendario
+        [dateComponents setCalendar:gregorian];
+        
+        //e finalmente puoi prelevare la data corretamente
+        date = [dateComponents date];
+        
+        NSLog(@"%@ - %@",dateComponents.calendar,date);
+    
+    /*
+     * ----- FINE SOLUZIONE -------
+     */
     
     NSMutableArray *dates = [hvc datesToYearFromCurrentDate:date days:days];
     returnDate = [dates objectAtIndex:1];
