@@ -101,7 +101,7 @@
 }
 
 /**
- Restituisce un array di date di inizio mestruazione per l'anno corrente.
+ @brief Restituisce un array di date di inizio mestruazione per l'anno corrente.
  
  @param date -> Data dalla quale partire il conteggio.
  @param days -> Numero di giorni tra una mestruazione e l'altra.
@@ -114,7 +114,7 @@
 }
 
 /**
- Restituisce un array di date di inizio mestruazione per l'anno corrente.
+ @brief Restituisce un array di date di inizio mestruazione per l'anno corrente.
 
  @param date -> Data dalla quale partire il conteggio.
  @param days -> Numero di giorni tra una mestruazione e l'altra.
@@ -182,7 +182,7 @@
 
 
 /**
- Calcola la data di inizio mestruazione
+ @brief Calcola la data di inizio mestruazione
  
  @param oldDate -> Data dell'ultima mestruazione.
  @param daysToAdd -> Durata periodo senza ciclo (28).
