@@ -158,10 +158,10 @@
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    MonthCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"identifier" forIndexPath:indexPath];
+    
+    MonthCell *cell = (MonthCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"identifier" forIndexPath:indexPath];
     cell.monthLabel.text =[monthArray objectAtIndex:indexPath.row];
-    
-    
+
     //numero dei giorni contenuti nel mese (indexPath.Row inizia da 0)
     int numberOfDays = [self daysInMonth:(indexPath.row+1)];
     
