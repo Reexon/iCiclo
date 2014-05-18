@@ -33,7 +33,6 @@
     int days = 28;
     
     NSMutableArray *dates = [hvc datesToYearFromCurrentDate:curretDate days:days];
-    int c = 0;
 }
 
 @end
