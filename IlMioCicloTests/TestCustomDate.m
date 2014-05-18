@@ -32,6 +32,8 @@ NSDate *date;
 
 /**
 @brief Imposta la data a 11/05/2014 con il calendario Gregoriano.
+ 
+ @attention non è un test
 */
 - (void)setupDate {
     //-- Imposto manualmente una data.
@@ -124,12 +126,11 @@ NSDate *date;
                             NSCalendarUnitMonth |
                             NSCalendarUnitYear
                             fromDate:returnDate];
+    NSLog(@"Day = %li", (long)returnDateComponents.day);
     
     NSAssert(returnDateComponents.day == 8, @"3 - Day wrong %ld != 8", (long)returnDateComponents.day);
     NSAssert(returnDateComponents.month == 6, @"3 - Month wrong %ld != 6", (long)returnDateComponents.month);
     NSAssert(returnDateComponents.year == 2014, @"3 - Year wrong %ld != 2014", (long)returnDateComponents.year);
-    
-
     
 }
 
