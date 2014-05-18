@@ -29,10 +29,21 @@
 
 - (void)testDatesToYearFromCurrentDate {
     HomeViewController *hvc = [[HomeViewController alloc] init];
-    NSDate *curretDate = [[NSDate alloc] init];
+    NSDate *returnDate = [[NSDate alloc] init];
+
     int days = 28;
     
-    NSMutableArray *dates = [hvc datesToYearFromCurrentDate:curretDate days:days];
+    //-- Imposto manualmente una data.
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setDay:11];
+    [dateComponents setMonth:05];
+    [dateComponents setYear:2014];
+    NSDate *date = [[NSDate alloc] init];
+    date = [dateComponents date];
+    
+    NSMutableArray *dates = [hvc datesToYearFromCurrentDate:date days:days];
+    returnDate = [dates objectAtIndex:1];
+    NSLog(@"%@", returnDate.debugDescription);
 }
 
 @end

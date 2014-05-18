@@ -103,8 +103,8 @@
 /**
  @brief Restituisce un array di date di inizio mestruazione per l'anno corrente.
  
- @param date -> Data dalla quale partire il conteggio.
- @param days -> Numero di giorni tra una mestruazione e l'altra.
+ @param date Data dalla quale partire il conteggio.
+ @param days Numero di giorni tra una mestruazione e l'altra.
  
  @return array di date di inizio metruazione, di tutti i mesi.
  */
@@ -116,9 +116,9 @@
 /**
  @brief Restituisce un array di date di inizio mestruazione per l'anno corrente.
 
- @param date -> Data dalla quale partire il conteggio.
- @param days -> Numero di giorni tra una mestruazione e l'altra.
- @param numberYear -> [1 .... n] 1 -> anno in corso. Per quanti anni si vogliono calcolare le date.
+ @param date Data dalla quale partire il conteggio.
+ @param days  Numero di giorni tra una mestruazione e l'altra.
+ @param numberYear  [1 .... n] 1 - anno in corso. Per quanti anni si vogliono calcolare le date.
  
  @return array di date di inizio metruazione, di tutti i mesi.
  */
@@ -141,8 +141,8 @@
 /**
  @author Marco.
  
- @param date -> Data da analizzare
-    @return NSDateComponets -> DataComponents relativo alla data.
+ @param date Data da analizzare
+    @return NSDateComponets DataComponents relativo alla data.
  */
 + (NSDateComponents *)componentsFromDate:(NSDate *)date {
     NSDateComponents *components = [[NSCalendar currentCalendar]
@@ -156,8 +156,8 @@
 /**
  @author Marco.
  
- @param date -> data da analizare
- @return -> restituisce il numero del gioro relativo alla data passata.
+ @param date data da analizare
+ @return restituisce il numero del gioro relativo alla data passata.
  */
 + (NSInteger)dayFromDate:(NSDate *)date {
 
@@ -184,12 +184,12 @@
 /**
  @brief Calcola la data di inizio mestruazione
  
- @param oldDate -> Data dell'ultima mestruazione.
- @param daysToAdd -> Durata periodo senza ciclo (28).
- @param Month -> [1 .... n] 1 -> Mese attuale. Numero dei mesi del quale si vuole sapere il ciclo
+ @param oldDate Data dell'ultima mestruazione.
+ @param daysToAdd Durata periodo senza ciclo (28).
+ @param Month [1 .... n] 1 -> Mese attuale. Numero dei mesi del quale si vuole sapere il ciclo
  (es. Siamo a maggio, se voglio sapere quello di agosto, inserirò 3).
  
- @return newDate -> Data inizo ciclo.
+ @return newDate Data inizo ciclo.
  */
 - (NSDate *)dateCicloWithPreviusData:(NSDate *)oldDate andDaysToAdd:(int)daysToAdd andMonth:(int)month{
     
